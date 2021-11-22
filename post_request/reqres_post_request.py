@@ -5,7 +5,8 @@ import jsonpath
 request_uri = "https://reqres.in/api/users"
 file = open('post_request.json', 'r')
 payload = file.read()
-payload_json = json.loads(payload)  # Deserialize the payload file to computer readable format
+payload_json = json.loads(payload)  # Converts the file content to a list of dictionary
+print(payload_json)
 post_response = requests.post(request_uri, data=payload_json)
 print(post_response.content)
 print(post_response.status_code)
