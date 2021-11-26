@@ -16,6 +16,7 @@ items = response_ggl.cookies.items()  # This will return a list of tuples
 for item in items:
     print(item)
 response_jar = RequestsCookieJar()  # contains multiple cookies
-response_jar.set("employee", "Animesh", domain="httpbin.org", path="/cookies")
-response_new = requests.get(request_uri, cookies=response_jar)  # providing multiple cookies
+response_jar.set("Employee Name", "Animesh", domain="httpbin.org", path="/cookies")  # add cookie to RequestCookieJar
+response_jar.set("Company", "EPAM", domain="httpbin.org", path="/cookies2")
+response_new = requests.get(request_uri, cookies=response_jar)  # providing multiple cookies in RequestCookieJar
 print(response_new.text)
