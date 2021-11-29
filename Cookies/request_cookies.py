@@ -13,13 +13,14 @@ print(response_cookies.cookies)
 
 response_ggl = requests.get("https://google.com")
 items = response_ggl.cookies.items()  # This will return a list of tuples
+print(response_ggl.cookies)
 for item in items:
     print(item)
 
 # Send multiple cookies through RequestCookieJar()
 
-response_jar = RequestsCookieJar()  # contains multiple cookies
-response_jar.set("Employee Name", "Animesh", domain="httpbin.org", path="/cookies")  # add cookie to RequestCookieJar
-response_jar.set("Company", "EPAM", domain="httpbin.org", path="/cookies2")
-response_new = requests.get(request_uri, cookies=response_jar)  # providing multiple cookies in RequestCookieJar
+cookie_jar = RequestsCookieJar()  # contains multiple cookies
+cookie_jar.set("Employee Name", "Animesh", domain="httpbin.org", path="/cookies")  # add cookie to RequestCookieJar
+cookie_jar.set("Company", "EPAM", domain="httpbin.org", path="/cookies2")
+response_new = requests.get(request_uri, cookies=cookie_jar)  # providing multiple cookies in RequestCookieJar
 print(response_new.text)
