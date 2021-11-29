@@ -19,5 +19,15 @@ print("Bearer Response: ", bearer_response.text)
 
 #    ******* Digestive Authentication *******
 
+digest_Auth_url = "https://httpbin.org/digest-auth/auth/user/passwd"
+digest_response = requests.get(digest_Auth_url, auth=HTTPDigestAuth('user', 'passwd'))  # Bearer token is passed as a
+# header
+print("Digest Auth status code: ", digest_response.status_code)
+print("Digest Response: ", digest_response.text)
 
 #    ******* OAuth1 Authentication *******
+
+oauth_url = "https://authorization-server.com/token"
+oauth = OAuth1('grant_type=authorization_code', 'client_id=hajshdah1212')
+oauth_response = requests.get(oauth_url,auth=oauth)
+print("OAuth1 status code: ", oauth_response.status_code)
