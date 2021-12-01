@@ -17,10 +17,11 @@ print(response_ggl.cookies)
 for item in items:
     print(item)
 
-# Send multiple cookies through RequestCookieJar()
+# Send multiple cookies through RequestCookieJar class
 
 cookie_jar = RequestsCookieJar()  # contains multiple cookies
 cookie_jar.set("Employee Name", "Animesh", domain="httpbin.org", path="/cookies")  # add cookie to RequestCookieJar
+# object
 cookie_jar.set("Company", "EPAM", domain="httpbin.org", path="/cookies2")
-response_new = requests.get(request_uri, cookies=cookie_jar)  # providing multiple cookies in RequestCookieJar
+response_new = requests.get(request_uri, cookies=cookie_jar)  # providing multiple cookies in RequestCookieJar object
 print(response_new.text)
