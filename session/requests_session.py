@@ -10,7 +10,7 @@ session.get(set_cookie_url, params=employee)  # setting the cookie in the sessio
 session.get(set_cookie_url, params=company)  # setting the cookie in the session
 response = session.get(get_cookie_url)
 print(response.text)
-response.close()
+response.close()  # close existing session
 
 # Creating a new session
 
